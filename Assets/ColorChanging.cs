@@ -11,8 +11,8 @@ public class ColorChanging : MonoBehaviour
     private float timeSinceLastCycle = 0.0f; 
     private Color startColor; 
     private Color endColor; 
-    private float timeSinceLastFade = 0.0f;
-    private bool isFading = false; 
+    private float timeSinceLastChange = 0.0f;
+    private bool isChangingColor = false; 
 
     void Start()
     {        
@@ -22,7 +22,7 @@ public class ColorChanging : MonoBehaviour
     void Update()
     {
        
-        if (!isFading)
+        if (!isChangingColor)
         {
            
             timeSinceLastCycle += Time.deltaTime;
@@ -43,19 +43,19 @@ public class ColorChanging : MonoBehaviour
                 endColor = colors[currentIndex];
 
                 
-                isFading = true;
-                timeSinceLastFade = 0.0f;
+                isChangingColor = true;
+                timeSinceLastChange = 0.0f;
             }
         }
 
        
-        if (isFading)
+        if (isChangingColor)
         {
            
-            timeSinceLastFade += Time.deltaTime;
+            timeSinceLastChange += Time.deltaTime;
 
             
-            float progress = Mathf.Clamp01(timeSinceLastFade / fadeTime);
+            float progress = Mathf.Clamp01(timeSinceLastChange / fadeTime);
 
            
             GetComponent<Renderer>().material.color = Color.Lerp(startColor, endColor, progress);
@@ -63,7 +63,7 @@ public class ColorChanging : MonoBehaviour
             
             if (progress >= 1.0f)
             {
-                isFading = false;
+                isChangingColor = false;
             }
         }
     }
