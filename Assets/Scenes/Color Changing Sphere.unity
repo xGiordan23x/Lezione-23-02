@@ -236,9 +236,9 @@ MonoBehaviour:
   colors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0.4540938, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.8786564, a: 1}
   - {r: 0, g: 0.11957097, b: 1, a: 1}
-  cycleTime: 0.3
-  fadeTime: 0.5
+  fadeTime: 2
 --- !u!1 &895223731
 GameObject:
   m_ObjectHideFlags: 0
